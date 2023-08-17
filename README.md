@@ -18,7 +18,7 @@ This is a simple terminal-based Tic-Tac-Toe game designed for two players to enj
 
 1. **Download**: [Download the Windows executable](tictactoe.exe?raw=true).
 
-2. **Run**: Double-click the downloaded executable (`TicTacToe.exe`) to start the game.
+2. **Run**: Double-click the downloaded executable (`tictactoe.exe`) to start the game.
 
 ### Mac and Linux
 
@@ -27,7 +27,7 @@ Standalone executable files for Mac and Linux will be provided soon. Stay tuned 
 
 ## Source Code
 
-If you're interested in exploring the Java source code of the game, it's available in the repository as `YourProgram.java`. Feel free to take a look!
+If you're interested in exploring the Java source code of the game, it's available in the repository as `TicTacToe.java`. Feel free to take a look!
 
 ## Gameplay
 
