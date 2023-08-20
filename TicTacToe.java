@@ -1,28 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-class Player {
-    private String name;
-    private char symbol;
-
-    Player() {
-        name = "";
-        symbol = ' ';
-    }
-
-    Player(String name, char symbol) {
-        this.name = name;
-        this.symbol = symbol;
-    }
-
-    String getName() {
-        return name;
-    }
-
-    char getSymbol() {
-        return symbol;
-    }
-}
+record Player(String name, char symbol){}
 
 public class TicTacToe {
     static char[][] board;
@@ -50,12 +29,12 @@ public class TicTacToe {
             name = sc.nextLine();
             Player p2 = new Player(name, 'O');
 
-            map.put(p1.getSymbol(), p1);
-            map.put(p2.getSymbol(), p2);
+            map.put(p1.symbol(), p1);
+            map.put(p2.symbol(), p2);
 
             System.out.println();
-            System.out.println(String.format("%s will play as %c", p1.getName(), p1.getSymbol()));
-            System.out.println(String.format("%s will play as %c", p2.getName(), p2.getSymbol()));
+            System.out.println(String.format("%s will play as %c", p1.name(), p1.symbol()));
+            System.out.println(String.format("%s will play as %c", p2.name(), p2.symbol()));
 
             while (true) {
                 System.out.println("\nThe board: \n");
@@ -70,8 +49,8 @@ public class TicTacToe {
                     getResult();
                     return;
                 } else {
-                    symbol = (filledBoxesCount % 2 == 0) ? p1.getSymbol() : p2.getSymbol();
-                    name = (filledBoxesCount % 2 == 0) ? p1.getName() : p2.getName();
+                    symbol = (filledBoxesCount % 2 == 0) ? p1.symbol() : p2.symbol();
+                    name = (filledBoxesCount % 2 == 0) ? p1.name() : p2.name();
                     int r = 0, c = 0;
 
                     System.out.println(String.format("\n%s's Turn: ", name));
@@ -151,6 +130,6 @@ public class TicTacToe {
     }
 
     private static void getResult() {
-        System.out.println(String.format("%s Wins!", map.get(result).getName()));
+        System.out.println(String.format("%s Wins!", map.get(result).name()));
     }
 }
