@@ -17,7 +17,7 @@ public class TicTacToe {
         map = new HashMap<>();
 
         System.out.println("\nWELCOME TO THE TIC TAC TOE GAME!");
-        System.out.println("This a Simple Terminal Based Tci Tac Toe game for 2 players.");
+        System.out.println("This a Simple Terminal Based Tic Tac Toe game for 2 players.");
         System.out.println("============================================================\n");
 
         try (Scanner sc = new Scanner(System.in)) {
