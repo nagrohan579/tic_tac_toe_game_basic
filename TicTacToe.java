@@ -54,7 +54,7 @@ public class TicTacToe {
                     int r = 0, c = 0;
 
                     System.out.println(String.format("\n%s's Turn: ", name));
-                    System.out.print(String.format("Enter position to put %c: ", symbol));
+                    System.out.print(String.format("Enter position to put %c (row,coloumn separated by space): ", symbol));
                     r = Integer.parseInt(sc.next()) - 1;
                     c = Integer.parseInt(sc.next()) - 1;
 
