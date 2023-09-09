@@ -1,7 +1,8 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-record Player(String name, char symbol){}
+record Player(String name, char symbol) {
+}
 
 public class TicTacToe {
     static char[][] board;
@@ -51,18 +52,27 @@ public class TicTacToe {
                 } else {
                     symbol = (filledBoxesCount % 2 == 0) ? p1.symbol() : p2.symbol();
                     name = (filledBoxesCount % 2 == 0) ? p1.name() : p2.name();
-                    int r = 0, c = 0;
+                    int r = -1, c = -1;
 
                     System.out.println(String.format("\n%s's Turn: ", name));
 
-                    try{
-                    System.out.print(String.format("Enter position to put %c (row,coloumn separated by space): ", symbol));
-                    r = Integer.parseInt(sc.next()) - 1;
-                    c = Integer.parseInt(sc.next()) - 1;
-                    }catch (NumberFormatException formatException) {
-                        // Handle NumberFormatException
-                        System.err.println("NumberFormatException: " + formatException.getMessage());
-                        System.err.println("Enter valid Number!!");
+                    while (r < 0 && c < 0) {
+                        try {
+                            System.out.print(
+                                    String.format("Enter position to put %c (row,coloumn separated by space): ",
+                                            symbol));
+                            r = Integer.parseInt(sc.next()) - 1;
+                            c = Integer.parseInt(sc.next()) - 1;
+
+                            if(r<0 || r>=3 || c<0 || c>=3)
+                            {
+                                System.out.println("Invalid position!\nEnter again.");
+                                r=c=-1;
+                            }
+                        } catch (NumberFormatException e) {
+                            // Handle NumberFormatException
+                            System.err.println("Enter valid Number!");
+                        }
                     }
 
                     if (board[r][c] != '\u0000') {
