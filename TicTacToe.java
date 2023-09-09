@@ -54,9 +54,16 @@ public class TicTacToe {
                     int r = 0, c = 0;
 
                     System.out.println(String.format("\n%s's Turn: ", name));
-                    System.out.print(String.format("Enter position to put %c: ", symbol));
+
+                    try{
+                    System.out.print(String.format("Enter position to put %c (row,coloumn separated by space): ", symbol));
                     r = Integer.parseInt(sc.next()) - 1;
                     c = Integer.parseInt(sc.next()) - 1;
+                    }catch (NumberFormatException formatException) {
+                        // Handle NumberFormatException
+                        System.err.println("NumberFormatException: " + formatException.getMessage());
+                        System.err.println("Enter valid Number!!");
+                    }
 
                     if (board[r][c] != '\u0000') {
                         System.out.println("\nInvalid Move!\nEnter Again:");
